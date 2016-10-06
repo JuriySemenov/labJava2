@@ -13,25 +13,23 @@ public class Main {
     static Scanner scan = new Scanner(System.in);
     static Person[] pr;
 
-    static Person createPerson(String name, int age, PersonType type) throws ThreeInvalidInput {
+    static Person createPerson(PersonType type) throws ThreeInvalidInput {
         switch (type) {
             case StudentType:
-                return new Student(age, name);
+                return new Student();
             case TeacherType:
-                return new Teacher(age, name);
+                return new Teacher();
             case SchoolkidType:
-                return new Schoolkid(age, name);
+                return new Schoolkid();
             case DirectorType:
-                return new Director(age, name);
+                return new Director();
         }
         return null;
     }
 
     static Person readPerson() throws ThreeInvalidInput {
-        String name = Reader.readString("Введите имя");
-        int age = Reader.readInt("Введите возраст");
         PersonType type = Reader.readType("Введите тип \n1-Student\n2-Teacher\n3-Schoollkid\n4-Director");
-        Person p = createPerson(name, age, type);
+        Person p = createPerson(type);
         return p;
     }
 
@@ -42,7 +40,9 @@ public class Main {
 
     static Student findMinRecordBook(Person pr[]) {
         Arrays.sort(pr,new SortedByRecord());
-        return (Student)pr[0];
+        if(pr[0].getClass()==Student.class)
+         return (Student)pr[0];
+        return null;
     }
 
     public static void main(String[] args) {

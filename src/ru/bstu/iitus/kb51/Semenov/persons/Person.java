@@ -1,14 +1,13 @@
 package ru.bstu.iitus.kb51.Semenov.persons;
 
 import ru.bstu.iitus.kb51.Semenov.exception.ThreeInvalidInput;
+import ru.bstu.iitus.kb51.Semenov.io.Reader;
 
 public abstract class Person implements Comparable<Person> {
     private int age;
     private String name;
 
-    Person(int age, String name) throws ThreeInvalidInput {
-        this.age = age;
-        this.name = name;
+    Person() throws ThreeInvalidInput {
         init();
     }
 
@@ -21,7 +20,10 @@ public abstract class Person implements Comparable<Person> {
         return name;
     }
 
-    abstract void init() throws ThreeInvalidInput;
+    void init() throws ThreeInvalidInput {
+        name = Reader.readString("Введите имя");
+        age = Reader.readInt("Введите возраст");
+    }
 
     @Override
     public int compareTo(Person p) {

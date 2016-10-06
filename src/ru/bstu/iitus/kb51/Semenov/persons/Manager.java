@@ -7,11 +7,12 @@ import ru.bstu.iitus.kb51.Semenov.io.Reader;
 public class Manager extends Person {
     String job;
 
-    public Manager(int age, String name) throws ThreeInvalidInput {
-        super(age, name);
+    public Manager() throws ThreeInvalidInput {
+        super();
     }
 
-    void init() {
+    void init() throws ThreeInvalidInput {
+        super.init();
         job = Reader.readString("Место работы");
     }
 }

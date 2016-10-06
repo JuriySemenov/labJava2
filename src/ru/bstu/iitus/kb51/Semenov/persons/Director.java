@@ -6,11 +6,11 @@ import ru.bstu.iitus.kb51.Semenov.io.Reader;
 public class Director extends Manager {
     String inn;
 
-    public Director(int age, String name) throws ThreeInvalidInput {
-        super(age, name);
+    public Director() throws ThreeInvalidInput {
+        super();
     }
 
-    void init() {
+    void init() throws ThreeInvalidInput {
         super.init();
         inn = Reader.readString("Введите ИНН");
     }

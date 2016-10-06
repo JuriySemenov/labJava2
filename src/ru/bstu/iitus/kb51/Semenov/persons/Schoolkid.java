@@ -11,11 +11,12 @@ public class Schoolkid extends Person {
     float averageMark;
     int clas;
 
-    public Schoolkid(int age, String name) throws ThreeInvalidInput{
-        super(age, name);
+    public Schoolkid() throws ThreeInvalidInput{
+        super();
     }
 
     void init() throws ThreeInvalidInput {
+        super.init();
         clas = Reader.readInt("Класс школьника");
         averageMark = Reader.readFloat("Средний балл");
     }

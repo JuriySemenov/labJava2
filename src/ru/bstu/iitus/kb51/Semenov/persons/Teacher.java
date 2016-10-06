@@ -8,11 +8,11 @@ public class Teacher extends Manager {
     String subject;
     String certificate;
 
-    public Teacher(int age, String name) throws ThreeInvalidInput {
-        super(age, name);
+    public Teacher() throws ThreeInvalidInput {
+        super();
     }
 
-    void init() {
+    void init() throws ThreeInvalidInput {
         super.init();
         subject = Reader.readString("Преподаваемый предмет");
         certificate = Reader.readString("Номер сертификата преподователя");

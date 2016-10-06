@@ -16,8 +16,8 @@ public class SortedByRecord implements Comparator<Person> {
                 s2 = (Student) p2;
                 return Student.compare(s1,s2);
             }
-            return 1;
+            return -1;
         }
-        return -1;
+        return 1;
     }
 }

@@ -8,11 +8,12 @@ public class Student extends Person {
     float averageMark;
     String group;
 
-    public Student(int age, String name) throws ThreeInvalidInput {
-        super(age, name);
+    public Student() throws ThreeInvalidInput {
+        super();
     }
 
     void init() throws ThreeInvalidInput {
+        super.init();
         group = Reader.readString("Группа");
         averageMark = Reader.readFloat("Средний балл");
         recordBook = Reader.readLong("Номер зачетной книжки студента");
