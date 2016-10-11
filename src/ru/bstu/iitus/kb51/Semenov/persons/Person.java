@@ -1,15 +1,19 @@
 package ru.bstu.iitus.kb51.Semenov.persons;
 
-import ru.bstu.iitus.kb51.Semenov.exception.ThreeInvalidInput;
-import ru.bstu.iitus.kb51.Semenov.io.Reader;
+import ru.bstu.iitus.kb51.Semenov.enums.ParametersType;
+import ru.bstu.iitus.kb51.Semenov.exception.FatalInvalidInput;
+import ru.bstu.iitus.kb51.Semenov.io.StrategyReader;
+import ru.bstu.iitus.kb51.Semenov.io.StrategyWriter;
 
 public abstract class Person implements Comparable<Person> {
     private int age;
     private String name;
-
-    Person() throws ThreeInvalidInput {
+    static StrategyReader reader;
+    static StrategyWriter writer;
+    public Person() throws FatalInvalidInput {
         init();
     }
+
 
     public int getAge() {
         return age;
@@ -20,11 +24,13 @@ public abstract class Person implements Comparable<Person> {
         return name;
     }
 
-    void init() throws ThreeInvalidInput {
-        name = Reader.readString("Введите имя");
-        age = Reader.readInt("Введите возраст");
+    void init() throws FatalInvalidInput {
+        name = (String)reader.readParams(ParametersType.NAME);
+        age = (int)reader.readParams(ParametersType.AGE);
     }
-
+    static public  void  setReader(StrategyReader reader){
+        Person.reader=reader;
+    }
     @Override
     public int compareTo(Person p) {
         return age - p.age;

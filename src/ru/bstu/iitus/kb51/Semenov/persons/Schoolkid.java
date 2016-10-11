@@ -1,24 +1,22 @@
 package ru.bstu.iitus.kb51.Semenov.persons;
 
-import ru.bstu.iitus.kb51.Semenov.exception.ThreeInvalidInput;
-import ru.bstu.iitus.kb51.Semenov.exception.invalidInput;
-import ru.bstu.iitus.kb51.Semenov.io.Reader;
-
-import javax.transaction.TransactionRequiredException;
+import ru.bstu.iitus.kb51.Semenov.enums.ParametersType;
+import ru.bstu.iitus.kb51.Semenov.exception.FatalInvalidInput;
+import ru.bstu.iitus.kb51.Semenov.io.StrategyReader;
 
 
 public class Schoolkid extends Person {
-    float averageMark;
+    double averageMark;
     int clas;
 
-    public Schoolkid() throws ThreeInvalidInput{
+    public Schoolkid() throws FatalInvalidInput {
         super();
     }
 
-    void init() throws ThreeInvalidInput {
+    void init() throws FatalInvalidInput {
         super.init();
-        clas = Reader.readInt("Класс школьника");
-        averageMark = Reader.readFloat("Средний балл");
+        clas = (Integer)reader.readParams(ParametersType.CLASS);
+        averageMark = (Double)reader.readParams(ParametersType.AVERAGE_MARk);
     }
 }
 

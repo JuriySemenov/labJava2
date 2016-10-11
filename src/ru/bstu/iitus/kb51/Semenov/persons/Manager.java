@@ -1,19 +1,20 @@
 package ru.bstu.iitus.kb51.Semenov.persons;
 
-import ru.bstu.iitus.kb51.Semenov.exception.ThreeInvalidInput;
-import ru.bstu.iitus.kb51.Semenov.io.Reader;
+import ru.bstu.iitus.kb51.Semenov.enums.ParametersType;
+import ru.bstu.iitus.kb51.Semenov.exception.FatalInvalidInput;
+import ru.bstu.iitus.kb51.Semenov.io.StrategyReader;
 
 
 public class Manager extends Person {
     String job;
 
-    public Manager() throws ThreeInvalidInput {
+    public Manager() throws FatalInvalidInput {
         super();
     }
 
-    void init() throws ThreeInvalidInput {
+    void init() throws FatalInvalidInput {
         super.init();
-        job = Reader.readString("Место работы");
+        job = (String)reader.readParams(ParametersType.JOB);
     }
 }
 
