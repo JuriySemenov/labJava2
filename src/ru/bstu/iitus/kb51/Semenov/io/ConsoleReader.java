@@ -8,14 +8,13 @@ import ru.bstu.iitus.kb51.Semenov.persons.Person;
 
 import java.io.InputStream;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Scanner;
 
 public class ConsoleReader implements StrategyReader {
     private static Scanner scan;
 
-    public ConsoleReader(Object in) {
-      initStrategy(in);
+    public ConsoleReader() {
+        initStrategy(System.in);
     }
 
    private int readInt(String text) throws FatalInvalidInput {
