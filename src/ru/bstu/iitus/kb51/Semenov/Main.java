@@ -2,7 +2,7 @@ package ru.bstu.iitus.kb51.Semenov;
 
 import ru.bstu.iitus.kb51.Semenov.Compares.StudentRecordNumberComparator;
 import ru.bstu.iitus.kb51.Semenov.exception.FatalInvalidInput;
-import ru.bstu.iitus.kb51.Semenov.io.ConsoleReader;
+import ru.bstu.iitus.kb51.Semenov.io.*;
 import ru.bstu.iitus.kb51.Semenov.persons.Person;
 import ru.bstu.iitus.kb51.Semenov.persons.Student;
 
@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 
 public class Main {
     static LinkedList<Person> pr;
-    static ConsoleReader reader;
+    static Context strategy;
 
     static Person findMin(LinkedList<Person> pr) {
         return Collections.min(pr);
@@ -31,14 +31,14 @@ public class Main {
 
     public static void main(String[] args) {
         try {
-            reader = new ConsoleReader();
-            Person.setReader(reader);
-            pr = reader.readPersons();
+            strategy = new Context();
+            strategy.setStrategyReader(new FileReaderHTML("test.txt"));
+            Person.setStrategy(strategy);
+            pr = strategy.readPersons();
             System.out.println("Минимальный возраст у " + findMin(pr));
             System.out.println("Минимальный номер зачетки у студента " + findMinRecordBook(pr));
-
         } catch (FatalInvalidInput e) {
-            System.out.println(e.toString());
+            System.out.println(e.getMessage());
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }

@@ -9,14 +9,12 @@ public class Teacher extends Manager {
     String subject;
     String certificate;
 
-    public Teacher() throws FatalInvalidInput {
-        super();
-    }
 
-    void init() throws FatalInvalidInput {
+
+    public void init() throws FatalInvalidInput {
         super.init();
-        subject = (String) reader.readParams(ParametersType.SUBJECT);
-        certificate = (String) reader.readParams(ParametersType.CERTIFICATE);
+        subject = (String) strategy.readParams(ParametersType.SUBJECT);
+        certificate = (String) strategy.readParams(ParametersType.CERTIFICATE);
 
     }
 }

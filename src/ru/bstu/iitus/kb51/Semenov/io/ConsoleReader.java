@@ -103,12 +103,12 @@ public class ConsoleReader implements StrategyReader {
     }
     @Override
     public LinkedList<Person> readPersons() throws FatalInvalidInput {
-
         int n = readInt("Введите кол-во человек");
-        LinkedList<Person> pr = new LinkedList<Person>();
+        LinkedList<Person> pr = new LinkedList();
         for(int i=0;i<n;i++) {
             PersonType type = readType("Введите тип \n1-Student\n2-Teacher\n3-Schoollkid\n4-Director");
             Person p = (Person) type.getInstance();
+            p.init();
             pr.add(p);
         }
         return pr;

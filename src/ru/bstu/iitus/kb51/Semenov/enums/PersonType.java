@@ -5,22 +5,34 @@ import ru.bstu.iitus.kb51.Semenov.exception.invalidInput;
 import ru.bstu.iitus.kb51.Semenov.persons.*;
 
 public enum PersonType {
-    StudentType("Студент",1, Student.class),
-    TeacherType("Учитель",2, Teacher.class),
-    SchoolkidType("Школьник",3, Schoolkid.class),
-    DirectorType("Директор",4, Director.class);
+    StudentType("Студент",1, Student.class,"STUDENT"),
+    TeacherType("Учитель",2, Teacher.class,"TEACHER"),
+    SchoolkidType("Школьник",3, Schoolkid.class,"SCHOOLKID"),
+    DirectorType("Директор",4, Director.class,"DIRECTOR");
     String value;
     int num;
+    String name;
     Class<?>cl;
-    PersonType(String str, int number, Class cl){
+    PersonType(String str, int number, Class cl,String name){
         value=str;
         num=number;
         this.cl=cl;
+        this.name=name;
     }
     @Override
     public String toString(){
         return value;
     }
+
+    public static PersonType getType(String name){
+        for(PersonType type : values()){
+            if(type.name.equals(name)){
+                return type;
+            }
+        }
+        return null;
+    }
+
     public static PersonType valueOf(int num) throws FatalInvalidInput, invalidInput {
         for(PersonType type : values()){
             if(type.num==num){

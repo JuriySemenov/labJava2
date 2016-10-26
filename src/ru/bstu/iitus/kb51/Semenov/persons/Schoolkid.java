@@ -9,14 +9,12 @@ public class Schoolkid extends Person {
     double averageMark;
     int clas;
 
-    public Schoolkid() throws FatalInvalidInput {
-        super();
-    }
 
-    void init() throws FatalInvalidInput {
+
+    public void init() throws FatalInvalidInput {
         super.init();
-        clas = (Integer)reader.readParams(ParametersType.CLASS);
-        averageMark = (Double)reader.readParams(ParametersType.AVERAGE_MARk);
+        clas = (Integer)strategy.readParams(ParametersType.CLASS);
+        averageMark = (Double)strategy.readParams(ParametersType.AVERAGE_MARk);
     }
 }
 

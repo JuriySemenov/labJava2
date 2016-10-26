@@ -7,13 +7,10 @@ import ru.bstu.iitus.kb51.Semenov.io.StrategyReader;
 public class Director extends Manager {
     String inn;
 
-    public Director() throws FatalInvalidInput {
-        super();
-    }
 
-    void init() throws FatalInvalidInput {
+    public void init() throws FatalInvalidInput {
         super.init();
-        inn = (String)reader.readParams(ParametersType.INN);
+        inn = (String)strategy.readParams(ParametersType.INN);
     }
 }
 
