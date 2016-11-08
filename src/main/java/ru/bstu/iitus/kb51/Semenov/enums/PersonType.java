@@ -12,8 +12,8 @@ public enum PersonType {
     String value;
     int num;
     String name;
-    Class<?>cl;
-    PersonType(String str, int number, Class cl,String name){
+    Class<? extends Person>cl;
+    PersonType(String str, int number, Class<? extends Person> cl,String name){
         value=str;
         num=number;
         this.cl=cl;
@@ -41,7 +41,7 @@ public enum PersonType {
         }
         throw new invalidInput(" не верно введен тип Person");
     }
-    public Object getInstance()  {
+    public Person getInstance()  {
         try {
             return  cl.newInstance();
         } catch (InstantiationException e) {

@@ -1,0 +1,27 @@
+<configuration combine.children="append">
+<imageName >${person.image.prefix}/${person.name}</imageName>
+<resources>
+    <resource>
+        <type>Студент</type>
+        <include name="Василий Петров" age="20">${project.build.finalName}.jar</include>
+        <cafedraDirectory combine.self="cafedra">БГТУ/ИЭТУС/ПОВТиАС</cafedraDirectory>
+	    <properties> <property name="bookNumber">12324</property> </properties>
+    </resource>
+    <resource>
+            <type>Школьник</type>
+            <include name="Иван Сидоров" age="14">${project.build.finalName}.jar</include>
+    	    <properties> <property name="schoolClass">7б</property> </properties>
+    </resource>
+    <resource>
+            <type>Директор</type>
+            <include name="Дарья Петровна" age="42">${project.build.finalName}.jar</include>
+    	    <properties> <property name="company">MediaCompany</property> <property name="countSubordinate">7</property> </properties>
+    </resource>
+    <resource>
+            <type>Преподаватель</type>
+            <include name="Георгий Жуковский" age="26">${project.build.finalName}.jar</include>
+            <cafedraDirectory combine.self="cafedra">БГТУ/ИЭТУС/ПОВТиАС</cafedraDirectory>
+    	    <properties> <property name="company">БГТУ</property> <property name="degree">специалист</property> </properties>
+    </resource>
+</resources>
+</configuration>

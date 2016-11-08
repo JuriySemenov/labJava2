@@ -1,4 +1,4 @@
-package ru.bstu.iitus.kb51.Semenov.Compares;
+package ru.bstu.iitus.kb51.Semenov.compares;
 
 import ru.bstu.iitus.kb51.Semenov.persons.Student;
 

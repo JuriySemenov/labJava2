@@ -7,17 +7,20 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.util.List;
 
-/**
- * Created by User on 01.11.2016.
- */
+
 public class BinaryFileWriter implements StrategyWriter
 {
-    ObjectOutputStream writer;
-    @Override
-    public void WritePerson(Person p) throws IOException {
+    public BinaryFileWriter(Object o) throws IOException {
+        initStrategy(o);
+    }
+    private ObjectOutputStream writer;
+
+    private void WritePerson(Person p) throws IOException {
         writer.writeObject(p);
     }
+    @Override
     public void WritePersons(List<Person> persons) throws IOException {
+        writer.writeObject(persons.size());
         for (Person p:persons) {
             WritePerson(p);
         }
